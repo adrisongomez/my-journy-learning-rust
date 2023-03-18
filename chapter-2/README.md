@@ -297,3 +297,14 @@ fn do_action(){
 
 
 By definition Rust is a expresion language.
+
+## 2.4 Comments
+
+I've being using comment all alogn so not futher explanation.
+
+```rust
+// This how you usually comment on rust
+// it's you need to do a multiline comments add of this // at
+// the start of every line.
+// That's it bye. <3
+```
