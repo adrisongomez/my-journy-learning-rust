@@ -308,3 +308,168 @@ I've being using comment all alogn so not futher explanation.
 // the start of every line.
 // That's it bye. <3
 ```
+
+## 2.5 Control Flow
+
+if expression can be use like the following
+
+```rust
+fn main() {
+    let number = 3;
+
+    if number < 5 {
+        println!("condition was true"); // arms
+    } else {
+        println!("condition was false"); // arms those are ARMS!!!!
+    }
+}
+```
+
+You can also assign number using if expressions because they are
+expressions
+
+```rust
+fn main() {
+    let condition = true;
+    let number = if condition { 5 } else { 6 };
+
+    println!("The value of number is: {number}");
+}
+```
+
+You can also use `else if` on rust.
+
+```rust
+fn main() {
+    let number = 6;
+
+    if number % 4 == 0 {
+        println!("number is divisible by 4");
+    } else if number % 3 == 0 {
+        println!("number is divisible by 3");
+    } else if number % 2 == 0 {
+        println!("number is divisible by 2");
+    } else {
+        println!("number is not divisible by 4, 3, or 2");
+    }
+}
+```
+
+It's good to know only `bool` value or expression which resolve into `bool`
+are allowed to used as condition so any other non-boolean value would throw
+an error.
+
+
+The `loop` is used to create infinite loops, you can exit them using `break`
+and also skipt a cycle using `continue`.
+
+```rust
+    let mut i = 0;
+    loop {
+        // this is a infinite loop
+        println!("again!");
+        i += 1;
+        if i == 5 {
+            break; // this how you can stop it
+        } else {
+            continue; // this not neccesary but I just put it here to show that it can be used too.
+        }
+    }
+```
+
+`loop` can be use an expression.
+
+```rust
+fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2; // return would throw an error here!
+        }
+    };
+
+    println!("The result is {result}");
+}
+```
+
+`loop` can assigned label to it which can be used to exist them by reference that
+label.
+
+```rust
+fn main() {
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining = {remaining}");
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+
+        count += 1;
+    }
+    println!("End count = {count}");
+}
+```
+
+
+`while` also exists in rust.
+
+```rust
+fn main() {
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{number}!");
+
+        number -= 1;
+    }
+
+    println!("LIFTOFF!!!");
+}
+```
+
+`for` also it's here we us...
+
+iterating throught a array
+```rust
+fn main() {
+    let a = [10, 20, 30, 40, 50];
+    let mut index = 0;
+
+    while index < 5 {
+        println!("the value is: {}", a[index]);
+
+        index += 1;
+    }
+}
+```
+
+And using `ranges`
+
+```rust
+fn main() {
+    for number in (1..4).rev() {
+        println!("{number}!");
+    }
+    println!("LIFTOFF!!!");
+}
+```
+
+## Practice
+
+Let's start building some basic programms.
+
+- Convert temperatures between Fahrenheit and Celsius.
+- Generate the nth Fibonacci number.
+- Print the lyrics to the Christmas carol “The Twelve Days of Christmas,” taking advantage of the repetition in the song.
