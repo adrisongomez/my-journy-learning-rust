@@ -216,3 +216,84 @@ let x: [u32; 10] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 The only way to access a value is the traidicional way `x[index]`.
 
 When index is out of bound throw a panic call and exists the program.
+
+## 2.3 Functions
+
+The `main` function is the entrypoint to all rust programs.
+
+To declare a function you need to use the keyword `fn` next to
+the function in snake_case follow by the arguments/paramenters
+and it types and the return type. To define the body of a
+function use the you need to used `{}` to start a new block code.
+
+```rust
+fn function_name(arg1: u32) -> u32 {
+    arg1 // this is a implicit return expression but you can use return statement too
+    // return args1; it might work too
+}
+```
+
+Function are limited to its scope, you can access data outside of
+its scope but their variables and it self will be discard after
+the program leave that scope.
+
+```rust
+fn main(){
+    fn scope_1() {
+        fn scope_2() {
+
+        }
+        scope_2();
+    }
+    scope_1(); // :white_check_mark:  it works it's in the scope
+    scope_2(); // :x: This wont work because it out of scope and error would throw the compiler
+}
+```
+
+### Statement vs Expression
+
+Something I found really intersting on rust, it's statement vs expression
+which are different type of way to right code. 
+
+- *Expressions*: is defined as the way of right a line of code which it
+return a value which can be store afterwork. 
+
+For example:
+```rust
+
+let x = {
+    let y = 3;
+    y+3
+}
+// Rust would run the block of code and it would assign the return value
+// to x value. So in this case x is equal to 6.
+
+fn five() -> i8{
+    5
+}
+// Here is another expression because the value 5 whenever the five function
+// get call. five and its expression and its own.
+
+```
+
+- *Statement*: are defined as instruction that perform some action and do not
+return any value back.
+
+So by definition the following are statemnt:
+
+```rust
+
+let x = 5;
+
+// assigment in rust doesn't return a value back so you can't do
+// let x = let y = 3; 
+
+fn do_action(){
+    println!("do a heavy lift");
+}
+// Here is not either an explicit or implicit return which made this function
+// return a  () which can't be store in a variable.
+```
+
+
+By definition Rust is a expresion language.
