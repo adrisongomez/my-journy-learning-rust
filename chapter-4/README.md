@@ -257,3 +257,85 @@ block... weird.
 
 Rust has something fix this need too...
 
+
+## 4.2 Borrowing and Reference
+
+Let's recap our previous error...
+
+```rust
+fn do_something(a: String){
+  println!("{a}");
+}
+
+fn main() {
+    let b = String::from("hi");
+    do_something(b); // <- move the onwership of b to the function so a got invalitated
+
+    println!("{b}") // throw a compile error
+}
+```
+
+We can't access this variable `b` because it's invalitated by moving its ownership to the `do_something`
+function. At the end of the previous section I told you that rust have something to fix this issue. So this
+thing is the `reference` and `borrowing` which are basically, in nutshell, different way to *borrow* a value
+ownership of the data from a variable.
+
+First let's first fix this issue...
+
+```rust
+fn do_something(a: &String){
+  println!("{a}");
+}
+
+fn main() {
+    let b = String::from("hi");
+    do_something(&b); // <- move the onwership of b to the function so a got invalitated
+
+    println!("{b}") // throw a compile error
+}
+```
+
+So here are appending a `&` to the argument on the function call and on the type definition which means That
+now instead of *moving* the onwership we are *borrowing* the ownership by passing a reference to the data.
+Similiar heap example, reference are just simple a stack entry which point to another memory addess but the 
+defirrents betweens them it's that reference only point to entry within the stack so we are not actualling pointing
+to the heap and when they are being *drop* their pointer is not getting drop as well, because their a not owning
+the value only a reference to it, they are borrowing it.
+
+So now we have to kind of reference:
+- `immutable`: which are read-only reference and we can have multiple variable of that.
+- `mutable`: which are write reference and you can only one at the time.
+
+You may ask why mutable reference have are limited to one at time, they are like this because it solve an issues 
+that many programming languague have call data race. Similar to race condition, this error happen when a mutations
+are happen to the same time drive to unpredictable behaviour. 
+
+For example:
+
+You have a string store on memory `Hello, world` and you have multiple writer sending data simultaneosly. This 
+really make a lot of unpredictable behaviour every writer are writing at the same time and we cannot sure That 
+all changes are being apply after the mutation were apply. So to avoid this Rust don't allow this by just macking
+sure that only one writer is allow.
+
+To create a immutable referecen just enter `&s` and to create a mutable reference `&mut s`.
+
+### Dangling references
+
+What happen if intead of return a value (move the ownership from a value to another variable), I would like to
+just pass the reference (borrow the value) in a function. As far as, we know, we can't deduce that this could 
+drive to an error which it's if we are returning just the reference to value initialize on the function that
+value would *drop* when the function get out of scope. That's call the dangling reference. 
+
+Rust know that shit could happen and it would throw a compile error to let you know you need to fix this.
+
+For now, we can return the value but rust has another tool that can help us to fix this issues... But
+
+it's not explain on this section damn!
+
+Well it is what it is...
+
+
+### The rules of references
+
+- At any given time, you can have either one mutable reference or any number of immutable references.
+- References must always be valid. 

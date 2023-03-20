@@ -16,4 +16,5 @@ Every chapter on the books has indepent directory on the root on top level of th
 | --------- | --------- |
 | Chapter 1: Setup and Understaing Rust tools | [chapter-1]( /chapter-1 ) |
 | Chapter 2: Common Programming Concepts | [chapter-2]( /chapter-2 ) |
-| Chapter 2: Common Programming Concepts | [chapter-3]( /chapter-3 ) |
+| Chapter 3: Example of guessing game| [chapter-3]( /chapter-3 ) |
+| Chapter 4: Ownership | [chapter-4]( /chapter-4 ) |
