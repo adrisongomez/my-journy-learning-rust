@@ -201,7 +201,6 @@ let x = x.0; // this is a direct access. I personally like this approach
 
 Also you can define a empty tuple by using just `()` up to this point don't know how is being used. Probably I'll comeback and add some extra comments here to not leave anyone wondering.
 
-
 #### Array
 
 Array = store a single data type and a fixed amount of them
@@ -253,12 +252,13 @@ fn main(){
 ### Statement vs Expression
 
 Something I found really intersting on rust, it's statement vs expression
-which are different type of way to right code. 
+which are different type of way to right code.
 
 - *Expressions*: is defined as the way of right a line of code which it
-return a value which can be store afterwork. 
+return a value which can be store afterwork.
 
 For example:
+
 ```rust
 
 let x = {
@@ -294,7 +294,6 @@ fn do_action(){
 // Here is not either an explicit or implicit return which made this function
 // return a  () which can't be store in a variable.
 ```
-
 
 By definition Rust is a expresion language.
 
@@ -359,7 +358,6 @@ It's good to know only `bool` value or expression which resolve into `bool`
 are allowed to used as condition so any other non-boolean value would throw
 an error.
 
-
 The `loop` is used to create infinite loops, you can exit them using `break`
 and also skipt a cycle using `continue`.
 
@@ -422,7 +420,6 @@ fn main() {
 }
 ```
 
-
 `while` also exists in rust.
 
 ```rust
@@ -442,6 +439,7 @@ fn main() {
 `for` also it's here we us...
 
 iterating throught a array
+
 ```rust
 fn main() {
     let a = [10, 20, 30, 40, 50];
