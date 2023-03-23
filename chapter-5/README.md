@@ -54,3 +54,42 @@ hasn't tought me yet.
 ## Chapter 5.2: Trying struct 
 
 We create a program to calculate the area of rectangle. [example-struct](/chapter-5/example-struct/)
+
+## Chapter 5.3: Add methods and associated functions.
+
+So methods are just functions attach to the instance of struct. You can access the property of the object and do actions
+To create a methods used the folowing.
+
+```rust 
+struct FizzBuzz {}
+
+impl Fizz {
+    fn new() -> Self {
+        Self{}
+    }
+    fn buzz(&self) -> String {
+        return String::from("Buzz")
+    }
+
+    fn fizz(&self) -> String {
+        return String::from("Buzz")
+    }
+
+    fn fizzbuzz(&self) -> String {
+        return String::from("FizzBuzz")
+    }
+
+    fn playgame(instance: &FizzBuzz) {
+        instance.fizz();
+        instance.buzz();
+        instance.fizzbuzz();
+    }
+}
+```
+
+Here happen a lot, but I'm too tired to explain. Just said we can create static methods using the `fn method_name () {}`
+here is not called static methods because this isn't oop, they are called associated functions you can access using the 
+`::`. And to access real methods (the ones who has the `&self` <- which is ref of the object) you can use the `.` not matter 
+is the object or a reference of the object. Sorry c this thing `->` is just for returning types...
+
+So basically that said... Too tired to write. See you later my friend
