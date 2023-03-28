@@ -19,3 +19,4 @@ Every chapter on the books has indepent directory on the root on top level of th
 | Chapter 3: Example of guessing game| [chapter-3]( /chapter-3 ) |
 | Chapter 4: Ownership | [chapter-4]( /chapter-4 ) |
 | Chapter 5: Structs | [chapter-5]( /chapter-5 ) |
+| Chapter 6: Enums | [chapter-6]( /chapter-6 ) |
