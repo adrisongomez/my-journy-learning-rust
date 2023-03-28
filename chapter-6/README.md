@@ -93,3 +93,46 @@ let none_value: Option<Figure> = None;
 value.do_something(); // would fail because we haven't check if our value hold data
 ```
 
+
+## The `match` expression.
+
+
+So let's do this quick.
+
+HERE how you define a match
+```rust
+
+enum Enumerador {
+    VARIANTE_1,
+    VARIANTE_2,
+}
+
+
+// ...
+
+let value = Enumerador::VARIANTE_1;
+
+// ...
+
+match value {
+    Enumerador::VARIANTE_1 => {
+        // do something
+    }
+
+    Enumerador::VARIANT_2 => {
+        // do something else,
+    }
+
+    _ => {
+        // default behaviour
+
+        // I think this shouldn't define only when you have are using enums because when you add
+        // a new variant on your code the compiler would tell you that you need to implement the side 
+        // effect on every match function where your enums is being used... sound more work, but it make
+        // your code more safe and prevent bugs to happens.
+
+        // This only be used if you are using numbers or string on your match expression.
+    }
+}
+
+```
