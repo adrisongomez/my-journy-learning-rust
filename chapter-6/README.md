@@ -94,7 +94,7 @@ value.do_something(); // would fail because we haven't check if our value hold d
 ```
 
 
-## The `match` expression.
+## 6.2 The `match` expression.
 
 
 So let's do this quick.
@@ -136,3 +136,20 @@ match value {
 }
 
 ```
+
+## 6.3 Concise Control flow with `if let`.
+
+`if let`, in a nutshell, this syntaxt allow us to create a control flow only from a variant of the enums, so 
+we don't need to use the `defualt` or `all` arms (`_ => {}` and `others => {}`) which let us a more clean code
+when we want to cover a special case that only affect one of our variant. This syntaxt it's fine but you loose 
+the awarness of change that the compiler give you when using match, because you are cover a single case, and
+you can loose track the others variants... so uselo con cuidado bebe...
+
+```rust
+let value = Some(3u8);
+if let Some(v) = value {
+    println!("Do something with {}", v);
+}
+```
+
+
