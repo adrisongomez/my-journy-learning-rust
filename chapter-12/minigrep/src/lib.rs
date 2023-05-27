@@ -22,15 +22,20 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn build(args: &[String]) -> Result<Config, &'static str> {
-        if args.len() < 2 {
-            return Err("not enough arguments");
-        }
-        let query = args[1].clone();
-        let file_path = args[2].clone();
-        let ignore_case =
-                          // v-> Implicit implementation to use -i as CMD argument
-            args.contains(&"-i".to_string()) || env::var("MINIGREP_IGNORE_CASE").is_ok();
+    pub fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
+        // to remove the first args that is the binary name.
+        args.next();
+
+        let query = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Didn't get a search string"),
+        };
+        let file_path = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Didn't get a search string"),
+        };
+        let ignore_case = args.collect::<Vec<String>>().contains(&"-i".to_string())
+            || env::var("MINIGREP_IGNORE_CASE").is_ok();
         Ok(Config {
             query,
             file_path,
