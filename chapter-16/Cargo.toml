@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+    "simple-thread",
+    "simple-channel",
+    "simple-mutex",
+]
