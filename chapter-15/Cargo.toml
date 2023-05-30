@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+    "smart-pointer-box",
+    "interior-mutatibility-pattern",
+    "memory-leak"
+]
