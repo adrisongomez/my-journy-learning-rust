@@ -19,6 +19,7 @@ impl List {
 
 #[cfg(test)]
 mod tests {
+    use super::*;
     #[test]
     fn first_test() {
         let a = Rc::new(Cons(5, RefCell::new(Rc::new(Nil))));

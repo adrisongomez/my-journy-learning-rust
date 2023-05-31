@@ -29,4 +29,4 @@ note chapter 2 on this repo is chapter 3 of the book.
 | Chapter 14: Cargos and Workspaces | [chapter-14]( /chapter-14 ) |
 | Chapter 15: Smart Pointers | [chapter-15]( /chapter-15 ) |
 | Chapter 16: Concurrency | [chapter-16]( /chapter-16 ) |
-
+| Chapter 17: OOP in Rust | [chapter-17]( /chapter-17 ) |
