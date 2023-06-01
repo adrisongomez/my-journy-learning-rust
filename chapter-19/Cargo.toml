@@ -1,0 +1,9 @@
+[workspace]
+
+members = [
+    "unsafe-rust-learning",
+    "advanced-traits",
+    "macros",
+    "hello_macro",
+    "hello_macro_derive",
+]
