@@ -1,0 +1,8 @@
+[workspace]
+
+members = [ 
+    "hello",
+    "hello_client",
+    "server-example",
+    "server"
+ ]
